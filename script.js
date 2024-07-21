@@ -667,8 +667,31 @@ document.getElementById('customSizeButton').addEventListener('click', () => {
         printSizeSelect.dispatchEvent(new Event('change'));  // Trigger change event to update the UI
         updateSummary();
     } else {
-        alert(`Please ensure the dimensions are at least ${minSize}x${minSize} and the area is at least ${minArea}.`);
+        const message = getLanguage() === 'he' 
+            ? `אנא ודא שהמידות הן לפחות ${minSize}x${minSize} והשטח הוא לפחות ${minArea} סמ"ר.`
+            : `Please ensure the dimensions are at least ${minSize}x${minSize} and the area is at least ${minArea} cm².`;
+        showPopup(message);
     }
+});
+
+function getLanguage() {
+    return document.documentElement.lang || 'en';  // Default to 'en' if no language is set
+}
+
+function showPopup(message) {
+    const popup = document.getElementById('customPopup');
+    const popupMessage = document.getElementById('popupMessage');
+    popupMessage.textContent = message;
+    popup.classList.remove('hidden');
+    popup.style.display = 'block';
+    document.body.classList.add('no-scroll');
+}
+
+document.querySelector('.close-popup').addEventListener('click', () => {
+    const popup = document.getElementById('customPopup');
+    popup.classList.add('hidden');
+    popup.style.display = 'none';
+    document.body.classList.remove('no-scroll');
 });
 
 function showOptions() {
@@ -744,7 +767,7 @@ function populatePrintSizes() {
         }
     }
 
-    printSizeSelect.innerHTML += `<option value="${lang === 'he' ? 'מותאם אישית' : 'Custom'}">${lang === 'he' ? 'בחר גודל מותאם אישית' : 'Select a Custom Size'}</option>`;
+    printSizeSelect.innerHTML += `<option value="${lang === 'he' ? 'מותאם אישית' : 'Custom'}">${lang === 'he' ? 'בחר גודל מותאם אישית' : 'Select Custom Size'}</option>`;
     document.getElementById('printSizeOptions').classList.remove('hidden');
     updateSummary();
 }
