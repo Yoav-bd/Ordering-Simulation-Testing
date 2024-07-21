@@ -1,0 +1,850 @@
+@font-face {
+    font-family: "SctoGroteskA";
+    font-weight: 700;
+    src: url('fonts/scto-grotesk-a-bold.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "GretaText";
+    font-weight: 500;
+    src: url('fonts/greta-text-h-l-medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "SimplerPro";
+    font-weight: 500;
+    src: url('fonts/simpler-pro-bold.woff2') format('woff2');
+}
+
+
+
+@font-face {
+    font-family: "Hadassah";
+    font-weight: 500;
+    src: url('fonts/hadassah-friedlaender-medium.woff2') format('woff2');
+}
+
+
+
+
+/* Apply to elements when Hebrew is selected */
+:lang(he) body,
+:lang(he) input[type="number"],
+:lang(he) .radio-group input[type="radio"] + label,
+:lang(he) .checkbox-group input[type="checkbox"] + label,
+:lang(he) select{
+    font-family: "SimplerPro", Arial, sans-serif;
+    line-height:1.2; /* Ensure the same line-height as above */
+    vertical-align: middle; /* Ensure the same vertical alignment */
+}
+
+
+
+
+:lang(he) .summary h3 {
+    font-family: "Hadassah", 'Times New Roman', Times, serif;
+}
+
+:lang(he) #submitOrder{
+    font-family: "SimplerPro";
+}
+
+
+html, body {
+    font-family: "SctoGroteskA", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FCFAF5;
+    color: #000000;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Add this new CSS rule */
+#title {
+    margin-left: -40px;
+}
+
+
+.header {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#menuButton, #languageButton {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #FCFAF5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    color: #000000; /* Ensure text color is black */
+}
+
+
+
+#menuButton:active, #languageButton:active {
+    background-color: #111;
+}
+
+.reset-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#submitOrder {
+    flex: 0 1 80%; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 70% */
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #000;
+    color: #FCFAF5;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid #000; 
+    font-family:  "SctoGroteskA";
+}
+
+#submitOrder:hover {
+    background-color: #333;
+}
+
+#submitOrder:active {
+    background-color: #111;
+}
+
+#resetButton {
+    flex: 0 1 13%; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 20% */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    border: 2px solid #000;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 5%; /* Space between buttons */
+}
+
+.total-cost-label {
+    font-weight: bold;
+}
+
+body.rtl #resetButton {
+    margin-right: 5%; /* Space between buttons in RTL */
+    margin-left: 0; /* Remove left margin in RTL */
+    direction: rtl; /* Force LTR direction for button content */
+}
+
+#resetButton svg {
+    margin-left: 8px; /* Space between text and icon */
+    width: 18px; /* Adjust size as needed */
+    height: 21px; /* Adjust size as needed */
+}
+
+body.rtl #resetButton svg {
+    margin-right: 8px; /* Space between text and icon in RTL */
+}
+
+
+#resetButton:hover {
+    background-color: #f0f0f0; /* Light gray background on hover */
+    color: #000;
+}
+
+#resetButton:active {
+    background-color: #dcdcdc; /* Darker gray background on click */
+}
+
+
+
+h1 {
+    font-size: 23px;
+    margin: 0;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 28px;
+    font-family: "GretaText";
+    font-weight: lighter;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Ensure even spacing between form groups */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Ensure even spacing */
+}
+
+.hidden-no-space {
+    display: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important; /* Ensure the element takes up no vertical space */
+    overflow: hidden !important; /* Ensure no content is displayed */
+}
+
+
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, input[type="number"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #000000;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SctoGroteskA", sans-serif;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center; /* Default position */
+    background-color: #FCFAF5;
+    color: #000000;
+}
+
+select {
+    background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_0_17" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect y="24" width="24" height="24" transform="rotate(-90 0 24)" fill="%23D9D9D9"/></mask><g mask="url(%23mask0_0_17)"><path d="M18 10L12 16L6 10L7.4 8.6L12 13.2L16.6 8.6L18 10Z" fill="%231C1B1F"/></g></svg>');
+}
+
+input[type="number"] {
+    background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><mask id="mask0_0_32" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24"><rect width="24" height="24" fill="%23D9D9D9"/></mask><g mask="url(%23mask0_0_32)"><path d="M12 20.9996L7.5 16.4996L8.95 15.0496L12 18.0996L15.05 15.0496L16.5 16.4996L12 20.9996ZM8.95 9.04961L7.5 7.59961L12 3.09961L16.5 7.59961L15.05 9.04961L12 5.99961L8.95 9.04961Z" fill="%231C1B1F"/></g></svg>');
+}
+
+body.rtl select, body.rtl input[type="number"] {
+    background-position: left 10px center; /* Position for RTL */
+}
+
+input::placeholder {
+    color: #000; /* Set placeholder text color to black */
+}
+
+
+
+/* Add this CSS to your existing stylesheet */
+.input-wrapper input[type="number"] {
+    width: calc(100% - 32px);
+    padding: 15px;
+    border: 2px solid #000000;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SctoGroteskA", sans-serif;
+    appearance: none;
+}
+
+
+option {
+    font-weight: bold;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group input[type="radio"] + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    line-height: 20px;
+    display: flex;
+    align-items: center; /* Center vertically */
+    color: #000;
+    font-family: "SctoGroteskA", sans-serif;
+}
+
+.radio-group input[type="radio"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
+    width: 20px; /* Adjust the size as needed */
+    height: 20px; /* Adjust the size as needed */
+    border: 1px solid #000;
+    border-radius: 50%;
+    background: #fff;
+}
+
+.radio-group:first-of-type input[type="radio"] + label {
+    margin-bottom: 15px; /* Add bottom margin to only the first radio button's label */
+}
+
+.radio-group input[type="radio"]:checked + label:before {
+    background: #fff;
+}
+
+.radio-group input[type="radio"]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 4px; /* Center the dot */
+    top: 50%;
+    transform: translateY(-50%); /* Center the dot vertically */
+    width: 14px; /* Size of the dot, adjust as needed */
+    height: 14px; /* Size of the dot, adjust as needed */
+    border-radius: 50%;
+    background: #000;
+}
+
+body.rtl .radio-group input[type="radio"] + label {
+    padding-left: 0;
+    padding-right: 35px;
+}
+
+body.rtl .radio-group input[type="radio"] + label:before {
+    left: auto;
+    right: 0;
+}
+
+body.rtl .radio-group input[type="radio"]:checked + label:after {
+    left: auto;
+    right: 4px;
+}
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-group input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #000;
+    font-family: "SctoGroteskA", sans-serif;
+}
+
+.checkbox-group input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px; /* Adjust the size as needed */
+    height: 20px; /* Adjust the size as needed */
+    border: 1px solid #000;
+    background: #fff;
+}
+
+.checkbox-group input[type="checkbox"]:checked + label:before {
+    background: #fff;
+}
+
+.checkbox-group input[type="checkbox"]:checked + label:after {
+    content: "";
+    position: absolute;
+    left: 4px; /* Adjust to center the check */
+    top: 4px; /* Adjust to center the check */
+    width: 14px; /* Adjust size as needed */
+    height: 14px; /* Adjust size as needed */
+    background: #000;
+}
+
+.checkbox-group:first-of-type input[type="checkbox"] + label {
+    margin-bottom: 15px; /* Add bottom margin to only the first checkbox */
+}
+body.rtl .checkbox-group input[type="checkbox"] + label {
+    padding-left: 0;
+    padding-right: 35px;
+}
+
+body.rtl .checkbox-group input[type="checkbox"] + label:before {
+    left: auto;
+    right: 0;
+}
+
+body.rtl .checkbox-group input[type="checkbox"]:checked + label:after {
+    left: auto;
+    right: 4px;
+}
+
+.summary {
+    margin-top: 30px;
+    background: #FCFAF5;
+}
+
+.summary h2 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.summary p {
+    margin: 10px 0;
+    color: #555;
+    font-size: 18px;
+}
+
+hr {
+    border: none;
+    border-top: 3px solid #000000; /* Makes the line bold and black */
+    margin: 20px 0; /* Adds some vertical spacing */
+}
+
+.total-cost {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.total-cost p {
+    font-size: 16px;
+    color: black;
+}
+
+.summary-label {
+    font-weight: bold;
+    color: black;
+    font-size: 14px;
+    display: block; /* Ensure label is on a separate line */
+}
+
+.summary-value {
+    font-weight: normal;
+    color: grey;
+    font-size: 14px;
+    display: inline-block;
+    width: 70%; /* Adjust width to make space for price */
+}
+
+.summary-price {
+    font-weight: normal;
+    color: grey;
+    font-size: 12px;
+    text-align: right;
+    display: inline-block;
+    width: 30%; /* Align price to the right */
+}
+body.rtl .summary-price {
+    text-align: left;
+    order: -1;
+}
+
+
+
+.summary-line {
+    margin: 15px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.mountTypeOptions {
+    display: none;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: right;
+}
+
+.footnote {
+   font-size: 12px;
+   color: grey;
+   display: inline-block;
+   max-width: 75%;
+}
+
+.footnote a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footnote a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    #title {
+        display: none;
+    }
+
+    /* Add this rule to remove background image for quantity input on mobile */
+    #quantity {
+        background-image: none;
+    }
+}
+
+
+#customSizeFields {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#customSizeFields input {
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SctoGroteskA", sans-serif;
+    appearance: none;
+    background-color: #FCFAF5;
+}
+
+#customSizeButton {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SctoGroteskA", sans-serif;
+    background-color: #000;
+    color: #FCFAF5;
+    border: none;
+    cursor: pointer;
+}
+
+#customSizeButton:hover {
+    background-color: #333;
+}
+
+
+/* Full-screen popup styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.popup-content {
+    background-color: #FCFAF5;
+    margin: 5% auto; /* Centered with smaller margin to fit within the screen */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 700px; /* Set the width to 1000px */
+    height: 650px; /* Set the height to 1000px */
+    max-width: 700px; /* Ensure it does not exceed 1000px */
+    max-height: 650px; /* Ensure it does not exceed 1000px */
+}
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.popup-content input[type="text"], 
+.popup-content input[type="email"], 
+.popup-content input[type="number"] {
+    border: none;
+    border-bottom: 2px solid grey; /* Adds the underline */
+    outline: none;
+    width: 100%;
+    padding: 10px 5px; /* Adjust padding to match design */
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    margin-bottom: 20px; /* Add space between inputs */
+    background-color: #FCFAF5;
+    font-family: "GretaText";
+    font-weight: lighter;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+.popup-content input[type="text"]::placeholder,
+.popup-content input[type="email"]::placeholder,
+.popup-content input[type="number"]::placeholder
+{
+    font-weight: lighter;
+    color: grey;
+}
+.popup-content input[type="text"]:focus, 
+.popup-content input[type="email"]:focus, 
+.popup-content input[type="tel"]:focus {
+    border-bottom: 2px solid black; /* Change color on focus */
+}
+
+.popup-content button {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 0px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.popup-content button:hover {
+    background-color: #333; /* Darker black on hover */
+}
+
+/* Popup content styling */
+.popup-content label.upload-label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: grey;
+}
+
+.upload-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: 100px; /* Adjust height as needed */
+    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    cursor: pointer;
+}
+
+.upload-container .upload-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-container .upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.upload-container .upload-box span {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+}
+
+.upload-container .upload-box svg {
+    fill: #666;
+    width: 24px;
+    height: 24px;
+}
+
+.popup-content button {
+    flex: 0 1 80%; /* Flex-grow: 0, Flex-shrink: 1, Flex-basis: 70% */
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #000;
+    color: #FCFAF5;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid #000; 
+}
+
+.popup-content button:hover {
+    background-color: #333; /* Darker black on hover */
+}
+
+
+@media (max-width: 768px) {
+    .popup-content {
+        width: 90%; /* Adjust width for mobile */
+        height: auto; /* Adjust height for mobile */
+        max-width: 90%; /* Ensure it does not exceed 90% */
+        max-height: none; /* Remove max height */
+    }
+
+}
+
+.confirmation-popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.confirmation-popup-content {
+    background-color: #FCFAF5;
+    margin: 15% auto; /* Centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px; /* Set a max-width for better appearance */
+    text-align: center; /* Centered text */
+}
+
+.close-confirmation {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+
+
+.close-confirmation:hover,
+.close-confirmation:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.file-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.file-list li {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Ensure textarea matches input styling */
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid grey;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SctoGroteskA", sans-serif;
+    appearance: none;
+    background-color: #FCFAF5; /* Same as site background */
+    color: black;
+    box-sizing: border-box; /* Ensure padding doesn't affect the width */
+    margin-bottom: 20px; /* Add space between inputs */
+    font-family: "GretaText";
+    font-weight: lighter;
+}
+
+textarea::placeholder {
+    color: grey; /* Set placeholder text color to black */
+    font-weight: lighter; /* Match other input fields */
+}
+
+textarea::selection{
+    border: 2px solid black;
+}
+
+
+#customSizeFields {
+    display: flex;
+    align-items: center;
+  
+}
+
+#customSizeFields input {
+    width: 80px; /* Ensure the inputs are square */
+    padding: 15px; /* Remove default padding */
+    border: 2px solid #000000;
+    border-radius: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SctoGroteskA", sans-serif;
+    appearance: none;
+    background-color: #FCFAF5;
+    color: #000000;
+    text-align: center; /* Center text inside the input */
+    background-image: none; /* Remove background image */
+    -moz-appearance: textfield; /* Firefox */
+}
+
+
+
+
+#customSizeFields input::-webkit-outer-spin-button,
+#customSizeFields input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Remove default margin */
+}
+
+#customSizeFields .separator {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+#customSizeButton {
+    width: 80px; /* Match the width of the input fields */
+    height: 50px; /* Match the height of the input fields */
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "SctoGroteskA", sans-serif;
+    background-color: #000;
+    color: #FCFAF5;
+    border: 2px solid #000000; /* Ensure border matches input fields */
+    border-radius: 0;
+    cursor: pointer;
+    margin-left: 10px; /* Space between input and button */
+}
+
+:lang(he) #customSizeButton {
+    margin-right: 10px; /* Space between input and button for RTL */
+}
+
+#customSizeButton:hover {
+    background-color: #333;
+}
