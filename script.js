@@ -973,6 +973,9 @@ function showFrameOptions() {
     }else if(frameType === 'Aluminium Frame'){
         antiReflectiveGlassPrice = addonPriceTable['Anti-Reflective Glass'][printSize];
         passepartoutPrice = addonPriceTable['Passepartout Aluminum'][printSize];
+    }else if(frameType === 'Box Frame for Originals'){
+        antiReflectiveGlassPrice = addonPriceTable['Anti-Reflective Glass'][printSize];
+        passepartoutPrice = addonPriceTable['Passepartout Box'][printSize];
     }
     
     addonOptions.innerHTML += `
@@ -992,7 +995,11 @@ function showFrameOptions() {
             if (frameType !== 'Floating Frame For Paintings' && frameType !== 'Light Box(Includes Printing)'  && frameType !== 'Stretcher Frame' && frameType !== 'Box Frame for Originals') {
                 mountOptions.classList.remove('hidden');
                 populateMountTypes();  // Ensure mount types are populated based on selected frame type
-            } else {
+            } else if(frameType === 'Box Frame for Originals'){
+                addonOptions.classList.remove('hidden');
+                quantityOptions.classList.remove('hidden');
+            }
+            else {
                 quantityOptions.classList.remove('hidden');
             }
             updateSummary();
