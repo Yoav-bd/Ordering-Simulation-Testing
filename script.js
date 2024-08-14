@@ -750,7 +750,7 @@ function populatePrintSizes() {
     // Change the label text based on the product type
     if (productType === 'Frame Only') {
         labelPrintSize.textContent = lang === 'he' ? 'מידה' : 'Size';
-        printSizeSelect.innerHTML = `<option value="" disabled selected>${lang === 'he' ? 'בחר מידה' : 'Select Print Size'}</option>`;
+        printSizeSelect.innerHTML = `<option value="" disabled selected>${lang === 'he' ? 'בחר מידה למסגרת' : 'Select Frame Size'}</option>`;
     } else {
         labelPrintSize.textContent = lang === 'he' ? 'הדפסה' : 'Size';
         printSizeSelect.innerHTML = `<option value="" disabled selected>${lang === 'he' ? 'בחר גודל הדפסה' : 'Select Print Size'}</option>`;
@@ -1044,9 +1044,12 @@ function updateSummary() {
     elements.forEach(element => {
         if (element.id === 'printSize') {
             if (document.getElementById('productType').value === 'Frame Only') {
-                element.label.he = 'גודל המידה';
+                element.label.he = 'מידת המסגרת';
+                element.label.en = 'Frame Size';
             } else {
                 element.label.he = 'גודל הדפסה';
+                element.label.en = 'Print Size';
+
             }
         }
     });
