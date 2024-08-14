@@ -750,12 +750,13 @@ function populatePrintSizes() {
     // Change the label text based on the product type
     if (productType === 'Frame Only') {
         labelPrintSize.textContent = lang === 'he' ? 'מידה' : 'Size';
+        printSizeSelect.innerHTML = `<option value="" disabled selected>${lang === 'he' ? 'בחר מידה' : 'Select Print Size'}</option>`;
     } else {
         labelPrintSize.textContent = lang === 'he' ? 'הדפסה' : 'Size';
+        printSizeSelect.innerHTML = `<option value="" disabled selected>${lang === 'he' ? 'בחר גודל הדפסה' : 'Select Print Size'}</option>`;
     }
 
 
-    printSizeSelect.innerHTML = `<option value="" disabled selected>${lang === 'he' ? 'בחר גודל הדפסה' : 'Select Print Size'}</option>`;
 
     if (productType === 'Frame Only') {
         for (const size in dibondNoBackFramePriceTable) {
