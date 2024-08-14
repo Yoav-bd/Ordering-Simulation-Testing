@@ -1041,13 +1041,20 @@ function updateSummary() {
         { id: 'diasecType', label: { en: 'Diasec Type (Acrylic Facemount)', he: 'סוג דיאסק (פרספקס קידמי)' } },
         { id: 'frameType', label: { en: 'Frame Type', he: 'סוג מסגור' } },
     ];
-
+    elements.forEach(element => {
+        if (element.id === 'printSize') {
+            if (document.getElementById('productType').value === 'Frame Only') {
+                element.label.he = 'גודל המידה';
+            } else {
+                element.label.he = 'גודל הדפסה';
+            }
+        }
+    });
     const summaryText = document.getElementById('summaryText');
     summaryText.innerHTML = ''; // Clear previous content
 
     let totalCost = 0;
     let lang = document.documentElement.lang;
-    let productType = document.getElementById('productType').value;
     let paperType = document.getElementById('paperType').value;
     let printSize = document.getElementById('printSize').value;
     let mountType = document.getElementById('mountType').value;
