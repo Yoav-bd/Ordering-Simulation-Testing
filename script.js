@@ -401,7 +401,6 @@ function translateToHebrew() {
     document.querySelector('h2').textContent = 'מחשבון מחירים';
     document.getElementById('labelProductType').textContent = 'מוצר';
     document.getElementById('labelPaperType').textContent = 'נייר';
-    document.getElementById('labelPrintSize').textContent = 'הדפסה';
     document.getElementById('labelFrameType').textContent = 'מסגרת';
     document.getElementById('labelMountType').textContent = 'הדבקה';
     document.getElementById('labelDiasecType').textContent = 'דיאסק';
@@ -728,7 +727,7 @@ function showOptions() {
         printSizeOptions.classList.remove('hidden');
         populatePrintSizes();
     }
-
+    
     updateSummary(); // Ensure summary is updated after product type selection
 }
 
@@ -743,7 +742,18 @@ function populatePrintSizes() {
     const productType = document.getElementById('productType').value;
     const paperType = document.getElementById('paperType').value;
     const printSizeSelect = document.getElementById('printSize');
+    const labelPrintSize = document.getElementById('labelPrintSize');
     const lang = document.documentElement.lang;
+
+
+
+    // Change the label text based on the product type
+    if (productType === 'Frame Only') {
+        labelPrintSize.textContent = lang === 'he' ? 'מידה' : 'Size';
+    } else {
+        labelPrintSize.textContent = lang === 'he' ? 'הדפסה' : 'Size';
+    }
+
 
     printSizeSelect.innerHTML = `<option value="" disabled selected>${lang === 'he' ? 'בחר גודל הדפסה' : 'Select Print Size'}</option>`;
 
